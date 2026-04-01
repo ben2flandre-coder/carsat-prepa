@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Préparation entretien CARSAT – Fiche complète enrichie</title>
+  <style>
+    :root{
+      --bg:#f4f7fb;
+      --paper:#ffffff;
+      --ink:#213042;
+      --muted:#5f6e7d;
+      --accent:#1f4e79;
+      --accent-2:#eaf2fb;
+      --line:#d9e3ef;
+      --ok:#0e6b50;
+      --warn:#8a5a00;
+      --danger:#8f2f2f;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0}
+    body{
+      font-family:"Segoe UI",Calibri,Arial,sans-serif;
+      background:var(--bg);
+      color:var(--ink);
+      line-height:1.5;
+    }
+    .toolbar{
+      position:sticky;
+      top:0;
+      z-index:20;
+      display:flex;
+      justify-content:center;
+      gap:12px;
+      padding:12px;
+      background:rgba(244,247,251,.94);
+      backdrop-filter:blur(8px);
+      border-bottom:1px solid #e7edf5;
+      flex-wrap:wrap;
+    }
+    .btn{
+      border:none;
+      background:var(--accent);
+      color:#fff;
+      padding:10px 16px;
+      border-radius:999px;
+      font-size:14px;
+      font-weight:700;
+      cursor:pointer;
+      box-shadow:0 8px 18px rgba(31,78,121,.18);
+    }
+    .btn.secondary{
+      background:#fff;
+      color:var(--accent);
+      border:1px solid #ccd8e5;
+      box-shadow:none;
+    }
+    .doc{
+      width:min(1220px, calc(100vw - 32px));
+      margin:20px auto 40px;
+      background:var(--paper);
+      box-shadow:0 14px 34px rgba(16,24,40,.08);
+      border-radius:18px;
+      overflow:hidden;
+    }
+    .hero{
+      padding:28px 34px 24px;
+      background:linear-gradient(180deg,#f7fbff 0%,#eef4fa 100%);
+      border-bottom:1px solid var(--line);
+    }
+    h1{
+      margin:0 0 8px 0;
+      font-size:34px;
+      line-height:1.08;
+      color:#13395b;
+    }
+    .sub{
+      margin:0;
+      color:var(--muted);
+      font-size:16px;
+      max-width:1020px;
+    }
+    .meta{
+      display:grid;
+      grid-template-columns:repeat(4, minmax(0,1fr));
+      gap:10px;
+      margin-top:18px;
+    }
+    .meta-card{
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:14px;
+      padding:12px 14px;
+    }
+    .meta-card strong{
+      display:block;
+      color:var(--accent);
+      font-size:12px;
+      text-transform:uppercase;
+      letter-spacing:.7px;
+      margin-bottom:5px;
+    }
+    .content{
+      display:grid;
+      grid-template-columns:300px 1fr;
+      gap:0;
+    }
+    .toc{
+      border-right:1px solid var(--line);
+      padding:22px 18px 24px;
+      background:#fbfcfe;
+      position:sticky;
+      top:58px;
+      align-self:start;
+      max-height:calc(100vh - 58px);
+      overflow:auto;
+    }
+    .toc h2{
+      margin:0 0 10px 0;
+      font-size:14px;
+      color:var(--accent);
+      text-transform:uppercase;
+      letter-spacing:.8px;
+    }
+    .toc a{
+      display:block;
+      color:var(--ink);
+      text-decoration:none;
+      font-size:13px;
+      padding:7px 8px;
+      border-radius:8px;
+      margin-bottom:4px;
+    }
+    .toc a:hover{background:var(--accent-2)}
+    .main{padding:24px 30px 30px}
+    section{
+      margin-bottom:18px;
+      border:1px solid var(--line);
+      border-radius:16px;
+      padding:18px 18px 16px;
+      break-inside:avoid;
+      page-break-inside:avoid;
+      background:#fff;
+    }
+    section h2{
+      margin:0 0 10px 0;
+      color:var(--accent);
+      font-size:21px;
+    }
+    section h3{
+      margin:14px 0 8px 0;
+      font-size:16px;
+      color:#173b5d;
+    }
+    section h4{
+      margin:10px 0 6px 0;
+      font-size:14px;
+      color:#163d61;
+    }
+    p{
+      margin:8px 0;
+      font-size:14.5px;
+    }
+    ul,ol{margin:8px 0 8px 20px}
+    li{margin:6px 0;font-size:14px}
+    .grid-2{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:12px;
+    }
+    .box{
+      border:1px solid var(--line);
+      background:#fbfdff;
+      border-radius:14px;
+      padding:12px 14px;
+    }
+    .tag{
+      display:inline-block;
+      padding:4px 8px;
+      border-radius:999px;
+      background:var(--accent-2);
+      color:var(--accent);
+      font-size:12px;
+      font-weight:700;
+      margin:3px 6px 3px 0;
+    }
+    .quote{
+      border-left:4px solid var(--accent);
+      background:#f8fbff;
+      padding:10px 12px;
+      border-radius:0 10px 10px 0;
+      font-style:italic;
+    }
+    .danger{
+      border-left:4px solid #c87a00;
+      background:#fff7ea;
+      padding:10px 12px;
+      border-radius:0 10px 10px 0;
+    }
+    .success{
+      border-left:4px solid #0e6b50;
+      background:#edf9f3;
+      padding:10px 12px;
+      border-radius:0 10px 10px 0;
+    }
+    .critical{
+      border-left:4px solid var(--danger);
+      background:#fff1f1;
+      padding:10px 12px;
+      border-radius:0 10px 10px 0;
+    }
+    .small{font-size:12.5px;color:var(--muted)}
+    .footer{
+      padding:0 30px 28px;
+      color:var(--muted);
+      font-size:12px;
+    }
+    @page{
+      size:A4;
+      margin:12mm;
+    }
+    @media print{
+      body{
+        background:#fff;
+        -webkit-print-color-adjust:exact;
+        print-color-adjust:exact;
+      }
+      .toolbar{display:none !important}
+      .doc{
+        width:auto;
+        margin:0;
+        box-shadow:none;
+        border-radius:0;
+      }
+      .content{display:block}
+      .toc{
+        position:static;
+        max-height:none;
+        border-right:none;
+        border-bottom:1px solid var(--line);
+        background:#fff;
+      }
+      a{color:inherit;text-decoration:none}
+      section{break-inside:avoid-page}
+    }
+    @media screen and (max-width:980px){
+      .doc{
+        width:calc(100vw - 16px);
+        margin:8px auto 24px;
+      }
+      .meta{grid-template-columns:1fr 1fr}
+      .content{grid-template-columns:1fr}
+      .toc{
+        position:static;
+        max-height:none;
+        border-right:none;
+        border-bottom:1px solid var(--line);
+      }
+      .main{padding:18px}
+      .hero{padding:22px 18px}
+      .grid-2{grid-template-columns:1fr}
+    }
+    @media screen and (max-width:768px){
+      body{font-size:15px}
+      .doc{
+        width:100%;
+        margin:0;
+        border-radius:0;
+        box-shadow:none;
+      }
+      .hero{padding:18px 14px}
+      h1{font-size:24px;line-height:1.2}
+      .sub{font-size:14px}
+      .meta{grid-template-columns:1fr;gap:8px}
+      .content{display:block}
+      .toc{
+        position:static;
+        border:none;
+        background:#fff;
+        padding:10px 12px;
+        max-height:none;
+      }
+      .toc a{
+        font-size:12px;
+        padding:6px;
+      }
+      .main{padding:14px}
+      section{
+        padding:14px;
+        margin-bottom:14px;
+      }
+      .grid-2{grid-template-columns:1fr}
+      .box{padding:10px}
+      .footer{padding:0 14px 18px}
+    }
+  </style>
+</head>
+<body>
+  <div class="toolbar">
+    <button class="btn" onclick="window.print()">Imprimer / Exporter PDF</button>
+    <button class="btn secondary" onclick="window.scrollTo({top:0,behavior:'smooth'})">Haut de page</button>
+  </div>
+
+  <article class="doc">
+    <header class="hero">
+      <h1>Préparation entretien CARSAT — fiche de révision complète enrichie</h1>
+      <p class="sub">
+        Dossier de préparation large, précis et opérationnel pour un poste de conseiller en prévention des risques professionnels / contrôleur de sécurité.
+        Objectif : maîtriser le fond métier, la logique institutionnelle, la posture attendue, les repères techniques, la sinistralité et les réponses d’entretien.
+      </p>
+      <div class="meta">
+        <div class="meta-card"><strong>Finalité</strong>Passer d’un profil formateur-expert à une posture d’acteur système de la prévention</div>
+        <div class="meta-card"><strong>Niveau visé</strong>Entretien technique + institutionnel + terrain</div>
+        <div class="meta-card"><strong>À maîtriser</strong>Prévention primaire, travail réel, DUERP, AT/MP, sinistralité, posture CARSAT</div>
+        <div class="meta-card"><strong>Usage</strong>Révision, impression, entraînement oral, fichage</div>
+      </div>
+    </header>
+
+    <div class="content">
+      <nav class="toc">
+        <h2>Sommaire</h2>
+        <a href="#s1">1. Ce qu’attend vraiment la CARSAT</a>
+        <a href="#s2">2. Prévention primaire, secondaire, tertiaire</a>
+        <a href="#s3">3. Principes généraux de prévention</a>
+        <a href="#s4">4. Travail prescrit / travail réel</a>
+        <a href="#s5">5. Méthode d’analyse d’une situation de travail</a>
+        <a href="#s6">6. DUERP : version métier</a>
+        <a href="#s7">7. TMS : ce qu’il faut savoir dire</a>
+        <a href="#s8">8. RPS : ce qu’il faut savoir dire</a>
+        <a href="#s9">9. Sinistralité, AT/MP et coût employeur</a>
+        <a href="#s10">10. CARSAT : histoire, réseau, missions</a>
+        <a href="#s11">11. Contrôleur de sécurité / conseiller prévention</a>
+        <a href="#s12">12. Comment parler aux entreprises</a>
+        <a href="#s13">13. Questions d’entretien probables</a>
+        <a href="#s14">14. Cas pratiques types</a>
+        <a href="#s15">15. Pitch 60 secondes + posture</a>
+        <a href="#s16">16. Erreurs à éviter</a>
+        <a href="#s17">17. Check-list veille d’entretien</a>
+        <a href="#s18">18. Sources repères</a>
+      </nav>
+
+      <main class="main">
+        <section id="s1">
+          <h2>1. Ce qu’attend vraiment la CARSAT</h2>
+          <p>La CARSAT n’attend pas un simple animateur sécurité, ni un formateur qui empile des contenus réglementaires. Elle attend un professionnel capable de <strong>lire le travail réel</strong>, de comprendre les <strong>déterminants des risques</strong>, d’agir en <strong>prévention primaire</strong> et d’accompagner des entreprises vers des changements durables.</p>
+          <div class="grid-2">
+            <div class="box">
+              <h4>Ce qu’ils veulent entendre</h4>
+              <ul>
+                <li>Agir sur l’organisation, les conditions de travail et les moyens</li>
+                <li>Ne pas réduire la prévention à la sensibilisation</li>
+                <li>Travailler avec les acteurs de l’entreprise, pas à leur place</li>
+                <li>Relier analyse terrain, plan d’action, suivi et résultats</li>
+                <li>Rendre la prévention concrète, lisible et durable</li>
+              </ul>
+            </div>
+            <div class="box">
+              <h4>Ce qu’ils ne veulent pas</h4>
+              <ul>
+                <li>Une posture de sachant hors-sol</li>
+                <li>Un discours purement juridique</li>
+                <li>Une prévention limitée aux gestes, à l’affichage ou aux EPI</li>
+                <li>Des solutions plaquées sans observation préalable</li>
+                <li>Une lecture morale ou culpabilisante des écarts</li>
+              </ul>
+            </div>
+          </div>
+          <div class="success"><strong>Formule-clé :</strong> « Mon approche consiste à partir du travail tel qu’il se fait réellement, pour agir sur les déterminants des risques et construire des réponses opérationnelles et durables. »</div>
+        </section>
+
+        <section id="s2">
+          <h2>2. Prévention primaire, secondaire et tertiaire</h2>
+          <p>C’est un socle central. Tu dois pouvoir le définir, le distinguer, l’illustrer et montrer que tu sais hiérarchiser les actions.</p>
+
+          <h3>2.1 Prévention primaire</h3>
+          <p>La prévention primaire consiste à <strong>agir avant que le dommage ne survienne</strong>, en réduisant ou supprimant les risques à la source. Elle vise les causes, pas seulement les symptômes. Elle agit sur l’organisation, les moyens, les procédés, la conception, les flux, les interfaces, les rythmes, les marges de manœuvre et les conditions de réalisation du travail.</p>
+          <div class="box">
+            <h4>Exemples de prévention primaire</h4>
+            <ul>
+              <li>Modifier l’organisation des tournées pour réduire la surcharge physique</li>
+              <li>Changer un outil ou un matériel inadapté</li>
+              <li>Réorganiser un poste pour réduire les postures contraignantes</li>
+              <li>Réduire l’exposition à un agent dangereux par substitution</li>
+              <li>Agir sur la charge, la planification, les interfaces ou l’encadrement</li>
+            </ul>
+          </div>
+
+          <h3>2.2 Prévention secondaire</h3>
+          <p>La prévention secondaire vise à <strong>repérer plus tôt</strong> les situations dégradées ou les effets naissants, pour limiter l’aggravation. Elle ne traite pas toujours la cause à la racine, mais elle cherche à éviter que la situation ne bascule.</p>
+          <div class="box">
+            <h4>Exemples de prévention secondaire</h4>
+            <ul>
+              <li>Mise en place d’indicateurs de suivi, d’alertes ou de remontées terrain</li>
+              <li>Repérage précoce des signes de surcharge ou de douleurs</li>
+              <li>Entretiens ciblés ou observations régulières</li>
+              <li>Suivi des incidents, quasi-accidents, absentéisme ou irritants</li>
+            </ul>
+          </div>
+
+          <h3>2.3 Prévention tertiaire</h3>
+          <p>La prévention tertiaire intervient <strong>après la survenue du dommage</strong>. Elle vise à limiter les conséquences, favoriser le maintien dans l’emploi, l’accompagnement, la réadaptation, la réparation ou la réintégration.</p>
+          <div class="box">
+            <h4>Exemples de prévention tertiaire</h4>
+            <ul>
+              <li>Aménagement de poste après un accident ou une pathologie</li>
+              <li>Accompagnement du retour à l’emploi</li>
+              <li>Réévaluation des capacités et adaptation des tâches</li>
+              <li>Suivi post-événement ou soutien à la reprise</li>
+            </ul>
+          </div>
+
+          <div class="danger"><strong>Point de vigilance :</strong> si tu restes sur « former les salariés aux bons gestes », tu n’es pas au cœur de la prévention primaire. La formation est un levier, mais elle ne remplace pas l’action sur les causes.</div>
+          <div class="quote">« La prévention primaire agit sur la source et les déterminants. La prévention secondaire repère et limite la dégradation. La prévention tertiaire gère les conséquences et favorise le maintien ou le retour. »</div>
+        </section>
+
+        <section id="s3">
+          <h2>3. Principes généraux de prévention</h2>
+          <p>Tu dois connaître leur logique et savoir les mobiliser sans récitation scolaire. L’enjeu n’est pas de réciter l’article, mais de montrer que tu penses la prévention dans le bon ordre.</p>
+          <ul>
+            <li>Éviter les risques</li>
+            <li>Évaluer les risques qui ne peuvent pas être évités</li>
+            <li>Combattre les risques à la source</li>
+            <li>Adapter le travail à l’homme</li>
+            <li>Tenir compte de l’état d’évolution de la technique</li>
+            <li>Remplacer ce qui est dangereux par ce qui l’est moins</li>
+            <li>Planifier la prévention</li>
+            <li>Privilégier la protection collective sur l’individuelle</li>
+            <li>Donner les instructions appropriées</li>
+          </ul>
+          <div class="success"><strong>Lecture métier :</strong> une entreprise qui répond « on va former les salariés et distribuer des EPI » est souvent déjà en bas de l’échelle des mesures. La CARSAT attend une hiérarchisation des réponses.</div>
+        </section>
+
+        <section id="s4">
+          <h2>4. Travail prescrit / travail réel</h2>
+          <p>La distinction entre travail prescrit et travail réel est capitale. C’est une porte d’entrée très discriminante en entretien.</p>
+          <div class="grid-2">
+            <div class="box">
+              <h4>Travail prescrit</h4>
+              <p>Ce qui est prévu, écrit, organisé, demandé, formalisé : procédures, modes opératoires, plannings, objectifs, consignes, cahiers des charges.</p>
+            </div>
+            <div class="box">
+              <h4>Travail réel</h4>
+              <p>Ce qui est effectivement mis en œuvre par les opérateurs pour que le travail tienne malgré les aléas, les contraintes et les contradictions.</p>
+            </div>
+          </div>
+          <p>Les écarts entre les deux ne sont pas forcément des fautes : ils sont souvent des <strong>ajustements de régulation</strong> qui permettent à l’activité de tenir. Le rôle du préventionniste est de comprendre pourquoi ces écarts existent et sur quels déterminants il faut agir.</p>
+          <div class="box">
+            <h4>Mots-clés à placer intelligemment</h4>
+            <span class="tag">variabilité</span>
+            <span class="tag">marges de manœuvre</span>
+            <span class="tag">compromis opératoires</span>
+            <span class="tag">régulations</span>
+            <span class="tag">contraintes</span>
+            <span class="tag">aléas</span>
+            <span class="tag">déterminants</span>
+          </div>
+        </section>
+
+        <section id="s5">
+          <h2>5. Méthode d’analyse d’une situation de travail</h2>
+          <p>Une bonne réponse montre que tu sais observer, écouter, analyser et construire des priorités.</p>
+          <ol>
+            <li>Recadrer la demande et clarifier l’objet d’intervention</li>
+            <li>Observer le terrain, les postes, les flux, les gestes, les interfaces</li>
+            <li>Échanger avec les opérateurs, l’encadrement, éventuellement les représentants du personnel</li>
+            <li>Identifier les écarts entre prescrit et réel</li>
+            <li>Analyser les contraintes : temps, matériel, environnement, charge, organisation, coordination</li>
+            <li>Mettre en évidence les facteurs de risque et leurs déterminants</li>
+            <li>Construire des pistes d’action hiérarchisées</li>
+            <li>Définir un plan d’action, des responsables, des échéances et des indicateurs</li>
+          </ol>
+          <div class="quote">« Je pars des situations concrètes, j’observe le travail tel qu’il se fait, je confronte les points de vue, puis j’identifie les déterminants sur lesquels il est pertinent d’agir. »</div>
+        </section>
+
+        <section id="s6">
+          <h2>6. DUERP : version métier, pas version scolaire</h2>
+          <p>Le DUERP n’est pas un document pour se couvrir. Il doit être un <strong>outil vivant d’aide à la décision</strong>, ancré dans le travail réel et débouchant sur des actions effectives.</p>
+          <div class="grid-2">
+            <div class="box">
+              <h4>Ce qu’il devrait être</h4>
+              <ul>
+                <li>Une photographie argumentée des risques</li>
+                <li>Une base de dialogue interne</li>
+                <li>Un support de priorisation</li>
+                <li>Un point d’appui pour le plan d’action</li>
+                <li>Un outil actualisé et exploitable</li>
+              </ul>
+            </div>
+            <div class="box">
+              <h4>Ce qu’il ne doit pas être</h4>
+              <ul>
+                <li>Un copier-coller standard</li>
+                <li>Un document figé</li>
+                <li>Une liste hors-sol</li>
+                <li>Un simple support de conformité</li>
+                <li>Un fichier sans effets sur le terrain</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section id="s7">
+          <h2>7. TMS : ce qu’il faut savoir dire</h2>
+          <p>Ne réduis jamais les TMS à des gestes mal faits. Les TMS sont multifactoriels et liés à l’activité réelle.</p>
+          <ul>
+            <li>Répétitivité</li>
+            <li>Efforts</li>
+            <li>Postures contraignantes</li>
+            <li>Cadence et manque de récupération</li>
+            <li>Outils ou postes inadaptés</li>
+            <li>Contraintes de qualité, temps, environnement</li>
+            <li>Organisation du travail et charge cumulative</li>
+          </ul>
+          <div class="success"><strong>Angle juste :</strong> la CARSAT attend une lecture ergonomique et organisationnelle, avec des actions sur la conception des situations de travail et la hiérarchisation des mesures.</div>
+        </section>
+
+        <section id="s8">
+          <h2>8. RPS : ce qu’il faut savoir dire</h2>
+          <p>Les RPS ne se résument pas au stress individuel. Il faut savoir parler de l’organisation et du travail.</p>
+          <ul>
+            <li>Charge de travail excessive ou empêchée</li>
+            <li>Faible autonomie ou injonctions contradictoires</li>
+            <li>Manque de reconnaissance</li>
+            <li>Conflits de valeurs</li>
+            <li>Dégradation du collectif ou du management</li>
+            <li>Insécurité des situations, changements non accompagnés</li>
+          </ul>
+          <div class="success"><strong>Angle juste :</strong> on n’individualise pas trop vite le problème. On analyse aussi les modes d’organisation, les interfaces, les arbitrages et les contraintes.</div>
+        </section>
+
+        <section id="s9">
+          <h2>9. Sinistralité, AT/MP et coût employeur</h2>
+          <p>La sinistralité désigne l’ensemble des sinistres reconnus et indemnisés : accidents du travail, accidents de trajet et maladies professionnelles. Dans la logique Assurance Maladie – Risques professionnels, elle sert à mesurer les dommages, à piloter la prévention et à déterminer, selon les cas, une part du coût supporté par l’employeur via la cotisation AT/MP. citeturn405449search3turn405449search10turn405449search9</p>
+
+          <h3>9.1 Ce que représente la sinistralité pour l’employeur</h3>
+          <ul>
+            <li>Un indicateur de niveau de risque et de dégradation des conditions de travail.</li>
+            <li>Un impact potentiel sur le taux AT/MP selon la taille de l’entreprise et son mode de tarification : collectif, mixte ou individuel. citeturn405449search0turn405449search9turn405449search13</li>
+            <li>Un coût direct en cotisations, mais aussi des coûts indirects : absentéisme, désorganisation, remplacements, perte de qualité, tensions managériales, image dégradée.</li>
+          </ul>
+
+          <h3>9.2 La ligne sur la fiche de paie</h3>
+          <p>La cotisation AT/MP apparaît en paie dans la rubrique relative aux cotisations employeur. Elle est <strong>uniquement à la charge de l’employeur</strong>, sans part salariale, et couvre les risques d’accidents du travail, de maladies professionnelles et d’accidents de trajet. citeturn405449search1turn405449search11</p>
+
+          <div class="box">
+            <h4>À savoir dire simplement</h4>
+            <p>« La cotisation AT/MP figure sur le bulletin dans les charges patronales. Le salarié ne la paie pas. Pour l’employeur, elle matérialise le coût assurantiel du risque professionnel et, selon la taille de l’entreprise, son niveau de sinistralité peut influencer le taux. »</p>
+          </div>
+
+          <h3>9.3 Taux collectif, mixte, individuel</h3>
+          <ul>
+            <li><strong>Taux collectif</strong> : pour les entreprises de moins de 20 salariés, le taux est commun au secteur d’activité. citeturn405449search0turn405449search9</li>
+            <li><strong>Taux mixte</strong> : pour les entreprises de 20 à 149 salariés, le taux combine une part liée au secteur et une part liée à la sinistralité propre de l’entreprise. citeturn405449search9turn405449search13</li>
+            <li><strong>Taux individuel</strong> : pour les entreprises de 150 salariés et plus, le taux dépend de la sinistralité propre de l’entreprise. citeturn405449search19turn405449search9</li>
+          </ul>
+
+          <h3>9.4 Ce que signifie “part nominale” et “part marginale / surcote”</h3>
+          <p>Dans un langage de terrain, on peut distinguer :</p>
+          <ul>
+            <li>une <strong>part de base</strong>, liée au code risque, au secteur d’activité et aux règles générales de tarification ;</li>
+            <li>une <strong>part sensible à la sinistralité</strong>, surtout en tarification mixte ou individuelle, qui traduit plus directement l’historique AT/MP de l’entreprise.</li>
+          </ul>
+          <p>En stricte terminologie réglementaire, le taux net AT/MP n’est pas présenté comme “part nominale + surcote marginale” mais comme un taux construit à partir d’un <strong>taux brut</strong> auquel s’ajoutent des <strong>majorations réglementaires</strong>. Pour 2026, la formule publiée par l’Assurance Maladie mentionne le taux net = <strong>(taux brut + M1) × (1 + M2) + M3 + M4</strong>. Les majorations M1 à M4 couvrent notamment les accidents de trajet, les frais de gestion, certains transferts/fonds dédiés et des dépenses liées à la pénibilité. citeturn405449search13turn405449search19</p>
+
+          <div class="critical">
+            <strong>Important en entretien :</strong> évite d’affirmer une formule “part nominale / surcote marginale” comme si c’était l’expression réglementaire officielle. Tu peux en revanche expliquer qu’une part du coût est mutualisée et qu’une autre devient plus sensible à la sinistralité de l’entreprise selon le mode de tarification.
+          </div>
+
+          <h3>9.5 Lecture stratégique à donner en entretien</h3>
+          <p>La bonne lecture n’est pas de réduire la cotisation AT/MP à une “taxe punitive”. Il faut montrer que tu comprends sa logique : mutualisation du risque, incitation économique à la prévention, responsabilisation progressive des entreprises en fonction de leur taille et de leur sinistralité. citeturn405449search1turn405449search9turn405449search13</p>
+
+          <div class="quote">« La sinistralité n’est pas seulement un chiffre de coût. C’est un révélateur de la qualité des organisations de travail et un levier de dialogue avec l’entreprise, car elle relie prévention, santé au travail et impact économique. »</div>
+        </section>
+
+        <section id="s10">
+          <h2>10. CARSAT : histoire, réseau, missions</h2>
+          <p>Il faut maîtriser la logique institutionnelle sans en faire une récitation encyclopédique. La Sécurité sociale actuelle s’inscrit dans la dynamique issue de l’ordonnance du 4 octobre 1945. Les CARSAT sont des organismes régionaux de Sécurité sociale. Dans le champ des risques professionnels, elles interviennent dans le réseau animé par l’Assurance Maladie – Risques professionnels. citeturn405449search2turn405449search9turn405449search14</p>
+          <ul>
+            <li>La branche Risques professionnels agit selon trois grandes missions : <strong>réparer, tarifer, prévenir</strong>. citeturn405449search2turn405449search9</li>
+            <li>Le réseau régional comprend les CARSAT, la Cramif et les CGSS selon les territoires. citeturn405449search2turn405449search14</li>
+            <li>L’INRS apporte une expertise scientifique et technique au service de la prévention. citeturn405449search14turn405449search20</li>
+            <li>Le service prévention des CARSAT est historiquement structuré autour d’ingénieurs-conseils et de contrôleurs de sécurité. citeturn405449search14</li>
+          </ul>
+          <div class="box">
+            <h4>En une phrase</h4>
+            <p>La CARSAT n’est pas seulement un organisme de retraite ; dans le champ risques professionnels, elle est un acteur régional majeur de la prévention, de la tarification et de la réduction de la sinistralité.</p>
+          </div>
+        </section>
+
+        <section id="s11">
+          <h2>11. Contrôleur de sécurité / conseiller prévention : lecture métier</h2>
+          <p>Le contrôleur de sécurité analyse la prise en compte des risques professionnels par l’entreprise, conduit des enquêtes sur les conditions de travail, émet des recommandations, favorise la mise en œuvre d’actions de prévention et contribue à leur suivi.</p>
+          <ul>
+            <li>Lire une situation de travail avec méthode</li>
+            <li>Dialoguer avec un dirigeant, un encadrant, un opérateur, un représentant du personnel</li>
+            <li>Passer d’un constat à un plan d’action hiérarchisé</li>
+            <li>Faire tenir ensemble technique, organisation, réglementation et faisabilité</li>
+            <li>Être crédible sans être agressif ; ferme sans être raide ; structuré sans être rigide</li>
+          </ul>
+          <div class="danger"><strong>Erreur fréquente :</strong> croire qu’il s’agit d’un poste d’inspection punitive. La posture attendue relève davantage d’un accompagnement exigeant, structuré et orienté résultats.</div>
+        </section>
+
+        <section id="s12">
+          <h2>12. Comment parler aux entreprises</h2>
+          <p>Une grande partie du métier consiste à faire bouger des organisations sans les braquer inutilement.</p>
+          <ul>
+            <li>Écouter sans avaliser trop vite</li>
+            <li>Recadrer sans humilier</li>
+            <li>Déconstruire un faux diagnostic par l’analyse</li>
+            <li>Montrer l’intérêt opérationnel de la prévention</li>
+            <li>Rendre visibles les liens entre performance, qualité du travail et santé</li>
+          </ul>
+          <div class="quote">« Je ne pars pas du principe que le problème vient des personnes ; je cherche d’abord à comprendre les conditions dans lesquelles le travail s’effectue. »</div>
+        </section>
+
+        <section id="s13">
+          <h2>13. Questions d’entretien probables</h2>
+
+          <h3>“Qu’est-ce que la prévention primaire ?”</h3>
+          <p>Agir en amont, à la source, sur les déterminants des risques, en transformant l’organisation, les moyens, la conception ou les conditions de travail.</p>
+
+          <h3>“Comment analysez-vous une situation de travail ?”</h3>
+          <p>Observation, échanges avec les acteurs, identification des écarts prescrit/réel, analyse des contraintes et des régulations, hiérarchisation des actions.</p>
+
+          <h3>“Quelle différence entre formation et prévention ?”</h3>
+          <p>La formation est un levier. La prévention est une démarche plus large qui agit sur les situations, l’organisation, les moyens et les conditions de réalisation du travail.</p>
+
+          <h3>“Un DUERP bien fait, c’est quoi ?”</h3>
+          <p>Un outil vivant, ancré dans le terrain, qui alimente un plan d’action concret et partagé.</p>
+
+          <h3>“Pourquoi les entreprises ont-elles du mal avec la prévention ?”</h3>
+          <p>Parce qu’elle est souvent perçue comme une contrainte, déconnectée de l’activité réelle, ou traitée uniquement sous l’angle réglementaire.</p>
+
+          <h3>“Quel lien faites-vous entre sinistralité et prévention ?”</h3>
+          <p>La sinistralité est un indicateur de dommages et un révélateur de dysfonctionnements. Elle a aussi un impact économique pour l’entreprise via la cotisation AT/MP. L’enjeu n’est pas seulement de commenter le coût, mais d’agir sur les causes qui produisent les sinistres.</p>
+        </section>
+
+        <section id="s14">
+          <h2>14. Cas pratiques types</h2>
+
+          <h3>Cas TMS dans une entreprise de nettoyage</h3>
+          <ul>
+            <li>Ne pas valider d’emblée le diagnostic “ce sont les gestes”</li>
+            <li>Observer l’activité réelle, les temps, les outils, les contraintes de site</li>
+            <li>Échanger avec opérateurs et encadrement</li>
+            <li>Identifier charge physique cumulative, répétitivité, temps, enchaînements, marges de manœuvre</li>
+            <li>Construire des mesures techniques et organisationnelles avant de parler formation</li>
+            <li>Réinjecter l’analyse dans le DUERP et dans un plan d’action suivi</li>
+          </ul>
+
+          <h3>Cas RPS</h3>
+          <ul>
+            <li>Clarifier la demande et éviter la psychologisation immédiate</li>
+            <li>Analyser charge, autonomie, contradictions, fonctionnement managérial, interfaces</li>
+            <li>Identifier les irritants structurels</li>
+            <li>Co-construire des leviers réalistes et suivis</li>
+          </ul>
+        </section>
+
+        <section id="s15">
+          <h2>15. Pitch 60 secondes + posture</h2>
+          <div class="box">
+            <h4>Pitch</h4>
+            <p>« Je travaille dans la prévention des risques depuis plus de quinze ans, avec une double entrée terrain et pédagogique. Aujourd’hui formateur et référent pédagogique et technique, j’interviens sur des problématiques variées comme les TMS, les risques techniques, les RPS, l’hygiène ou encore les organisations de travail. Mon approche consiste à partir du travail réel pour comprendre les déterminants des risques, puis accompagner les acteurs vers des solutions concrètes et durables. En parallèle, j’accompagne aussi des entreprises via RMBD sur l’évaluation des risques et la structuration de démarches de prévention. Ce qui m’intéresse aujourd’hui, c’est de passer à une échelle d’impact plus large, dans une logique plus systémique de la prévention. »</p>
+          </div>
+          <ul>
+            <li>Posé, structuré, pas pressé</li>
+            <li>Terrain avant théorie</li>
+            <li>Technique sans raideur</li>
+            <li>Lucide sans cynisme</li>
+            <li>Sûr de ton cadre, pas arrogant</li>
+          </ul>
+        </section>
+
+        <section id="s16">
+          <h2>16. Erreurs à éviter</h2>
+          <ul>
+            <li>Parler uniquement de formation</li>
+            <li>Réciter la réglementation sans mise en mouvement</li>
+            <li>Donner une solution avant d’avoir décrit l’analyse</li>
+            <li>Ramener tous les problèmes au comportement individuel</li>
+            <li>Confondre prévention et conformité documentaire</li>
+            <li>Oublier la logique “réparer – tarifer – prévenir” de la branche</li>
+          </ul>
+          <div class="critical"><strong>Point critique :</strong> la prévention CARSAT n’est pas cosmétique. Elle cherche des effets réels sur la sinistralité, les conditions de travail et la durabilité des démarches.</div>
+        </section>
+
+        <section id="s17">
+          <h2>17. Check-list veille d’entretien</h2>
+          <ul>
+            <li>Savoir expliquer prévention primaire / secondaire / tertiaire sans hésiter</li>
+            <li>Avoir un exemple terrain TMS et un exemple organisation / RPS</li>
+            <li>Savoir définir le DUERP en mode métier</li>
+            <li>Savoir expliquer la différence entre travail prescrit et réel</li>
+            <li>Connaître le rôle de la branche Risques professionnels : réparer, tarifer, prévenir</li>
+            <li>Connaître la place de l’INRS et du réseau régional</li>
+            <li>Avoir un pitch de 60 secondes fluide</li>
+            <li>Préparer une réponse sur “pourquoi rejoindre la CARSAT ?”</li>
+            <li>Savoir parler simplement de la cotisation AT/MP et de la sinistralité employeur</li>
+          </ul>
+        </section>
+
+        <section id="s18">
+          <h2>18. Sources repères</h2>
+          <p class="small">Repères institutionnels et métier utilisés pour structurer cette fiche :</p>
+          <ul>
+            <li>Assurance Maladie – Risques professionnels : missions de prévention, tarification et réparation</li>
+            <li>Service Public : cotisation AT/MP uniquement à la charge de l’employeur</li>
+            <li>Ameli Entreprise : types de taux collectif, mixte, individuel</li>
+            <li>Ameli Entreprise : calcul du taux net, majorations M1 à M4</li>
+            <li>INRS : définitions AT/MP et repères institutionnels</li>
+            <li>CARSAT / Assurance Maladie : statistiques et rapports de sinistralité</li>
+          </ul>
+        </section>
+      </main>
+    </div>
+
+    <div class="footer">Fiche de révision CARSAT – préparation entretien – Benoît Deflandre</div>
+  </article>
+</body>
+</html>
